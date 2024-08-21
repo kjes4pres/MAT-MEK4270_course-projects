@@ -1,4 +1,5 @@
 import numpy as np
+import matplotlib.pyplot as plt
 
 
 def mesh_function(f, t):
@@ -36,6 +37,20 @@ def func(t):
     else:
         raise ValueError("t must be in the range 0, 4.")
     return f
+
+
+n = 20  # number of time steps
+del_t = 0.1  # time interval
+tn = n * del_t  # end time
+tn = np.linspace(0, tn, n + 1)  # array with all time steps
+
+mesh_fun = mesh_function(func, tn)
+
+plt.plot(tn, mesh_fun)
+plt.title("Exercise 1.1, Define a mesh function and visualize it.")
+plt.xlabel("Time"), plt.ylabel("f")
+plt.grid()
+plt.show()
 
 
 def test_mesh_function():
